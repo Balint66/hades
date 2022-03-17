@@ -46,6 +46,7 @@ class ResponseBase implements Base
     baseObject["ExceptionsEnum"] = ExceptionsEnum;
     baseObject["ErrorMessage"] = ErrorMessage;
     baseObject["ExceptionData"] = ExceptionData;
+    baseObject["MobileServiceVersion"] = MobileServiceVersion;
 
   }
 }

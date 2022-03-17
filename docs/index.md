@@ -2,7 +2,7 @@
 
 ## Fontos megjegyzés
 
-Egyes kliensek a kérésükhöz hozzáadhatnak más, a kéréshez felesleges értékeket, például: `ErrorMessage` vagy `ExceptionsEnum` -ot, amit a szerver ignorál, azonban a válaszoknál ezeket az értékekt nem szabad figyelmen kívül hagyni!
+Egyes kliensek a kérésükhöz hozzáadhatnak más, a kéréshez felesleges értékeket, például: `ErrorMessage` vagy `ExceptionsEnum` -ot, amit a szerver ignorál, azonban a válaszoknál ezeket az értékeket nem szabad figyelmen kívül hagyni!
 
 **AZONBAN A DOKUMENTÁCIÓ SZÁNDÉKOSAN KIHAGYJA EZEKET AZ ÉRTÉKEKET A VÁLASZOKBÓL, MIVEL KÜLÖN RÉSZBEN TÁRGYALJA ŐKET. A HIBÁKRA MINDEN ESETBEN TESZTELNI KELL, HOGY NULL-E!**
 

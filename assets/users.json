@@ -1,0 +1,10 @@
+[
+    {
+        "id":1,
+        "username":"BOA",
+        "firstName": "Balogh",
+        "secondName": "Álmos",
+        "password": "SZivaCS_is_Dö_BEST",
+        "trainings": [1]
+    }
+]
