@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../backend/data/message.dart' as datas;
 import '../../backend/data/person_message.dart';
 import 'response_base.dart';
 

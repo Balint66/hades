@@ -15,7 +15,8 @@ final _errors = <String, Exception>{
 
 Message _convert(int id) => MessageManager.instance[id]!;
 
-@JsonSerializable(constructor: '_', ignoreUnannotated: true, createToJson: false)
+@JsonSerializable(constructor: '_',
+ignoreUnannotated: true, createToJson: false,)
 class PersonMessage extends Equatable implements Indexable
 {
 

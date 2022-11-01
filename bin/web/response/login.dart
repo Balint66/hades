@@ -15,7 +15,9 @@ class Login extends ResponseBase {
   final List<Training> traininngs;
 
   @override
-  Map<String, dynamic> toJson([Map<String, dynamic> baseObject = const <String, dynamic>{}]) =>
+  Map<String, dynamic> toJson(
+    [Map<String, dynamic> baseObject = const <String, dynamic>{},]
+    ) =>
     super.toJson(baseObject)
       ..addAll(_$LoginToJson(this));
   

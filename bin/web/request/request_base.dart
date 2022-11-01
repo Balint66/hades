@@ -7,6 +7,7 @@ import '../common/base_data.dart';
 abstract class RequestBase extends Equatable with IBase {
 
   const RequestBase(this.base,) 
+    // ignore: avoid_field_initializers_in_const_classes
     : MobileVersion = '1.5.2-rc1';
 
   final String MobileVersion;

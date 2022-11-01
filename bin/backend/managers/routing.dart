@@ -40,7 +40,9 @@ class RoutingManager
     final obj = requests.Login.fromJson(req);
     final base = obj.findAs<Base>()!;
     final ret = UsersManager.instance.find(base.user);
-    if(!validateUser(ret, base.password)) throw Exception('Haha, proper error should be reported!');
+    if(!validateUser(ret, base.password)) {
+      throw Exception('Haha, proper error should be reported!');
+    }
     final resp = responses.Login(base,
       traininngs: ret!.trainings.map((e)=>e.toTraining()).toList(), );
     return Response.ok(json.encode(resp.toJson()), headers: <String, Object>{
@@ -55,9 +57,12 @@ class RoutingManager
     final obj = requests.Message.fromJson(req);
     final base = obj.findAs<Base>()!;
     final ret = UsersManager.instance.find(base.user)!;
-    if(!validateUser(ret, base.password)) throw Exception('Haha, proper error should be reported!');
+    if(!validateUser(ret, base.password)) {
+      throw Exception('Haha, proper error should be reported!');
+    }
     final relation = MessageUserRelationManager.instance.find(ret)!;
-    final resp = responses.Message(base, messageList: relation.messages.toList(),);
+    final resp = responses.Message(base,
+      messageList: relation.messages.toList(),);
     return Response.ok(json.encode(resp.toJson()), headers: <String, Object>{
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'private'

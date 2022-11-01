@@ -46,6 +46,7 @@ class User extends Equatable implements Indexable
   
   @override
   @JsonKey(ignore: true)
-  List<Object?> get props => [id, userName, password, firstName, secondName, trainings];
+  List<Object?> get props => [id, userName, password,
+                              firstName, secondName, trainings];
 
 }

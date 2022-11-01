@@ -5,30 +5,37 @@ import 'indexable.dart';
 
 part 'training.g.dart';
 
-@JsonSerializable(constructor: '_')
+final _errors = <String, Exception>{
+  'id': Exception('Data must conatin id for training!'),
+  'code':Exception('Data must conatin code for training!'),
+  'name':Exception('Data must conatin name for training!'),
+  'level':Exception('Data must conatin level for training!'),
+  'kind':Exception('Data must conatin kind for training!'),
+};
+
+@JsonSerializable(constructor: '_', ignoreUnannotated: true)
 class Training implements Indexable
 {
 
   factory Training.fromJson(final Map<String, dynamic> data)
   {
-
-    final id = data['id'] as int? ?? (throw Exception('Data must conatin id for training!'));
-    final code = data['code'] as String? ?? (throw Exception('Data must conatin code for training!'));
-    final name = data['name'] as String? ?? (throw Exception('Data must conatin name for training!'));
-    final level = data['level'] as String? ?? (throw Exception('Data must conatin level for training!'));
-    final kind = data['kind'] as String? ?? (throw Exception('Data must conatin kind for training!'));
-
-    return Training._(id, code, name, level, kind);
+    _errors.forEach((key, value) => data[key] ?? (throw value),);
+    return _$TrainingFromJson(data);
   }
 
   const Training._(this.id, this.code, this.name, this.level, this.kind);
   @override
+  @JsonKey()
   final int id;
+  @JsonKey()
   final String code;
+  @JsonKey()
   final String name;
+  @JsonKey()
   final String level;
+  @JsonKey()
   final String kind;
-  @JsonKey(ignore: true)
+  
   String get description => '$name - $level[$kind]';
 
   void toJosn(Map<String, dynamic> map)

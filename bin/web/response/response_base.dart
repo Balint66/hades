@@ -8,7 +8,8 @@ part 'response_base.g.dart';
 abstract class ResponseBase extends Equatable with IBase, JsonBase {
   const ResponseBase(this.base, {this.exceptionsEnum = 0,
     this.errorMessage = '', this.exceptionData = const <String, dynamic>{},}) 
-    : mobileServiceVersion = 6; //Mert a hatos szám a kedvencem, de simán lehetne itt 5 is.
+    //Mert a hatos szám a kedvencem, de simán lehetne itt 5 is.
+    : mobileServiceVersion = 6; // ignore: avoid_field_initializers_in_const_classes
 
   @JsonKey(name: 'ExceptionsEnum')
   final int exceptionsEnum;

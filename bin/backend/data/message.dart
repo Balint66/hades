@@ -13,7 +13,8 @@ final _errors = <String, Exception>{
   'Subject': Exception('Data must conatin subject for message!'),
   'required': Exception('Data must conatin required field for message!'),
   'Details': Exception('Data must conatin details for message!'),
-  'SendDate': Exception('Data must contain the date when the messahge was sent!'),
+  'SendDate':
+    Exception('Data must contain the date when the messahge was sent!'),
 };
 
 @JsonSerializable(ignoreUnannotated: true,

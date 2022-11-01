@@ -28,7 +28,8 @@ class Builder{
 
   void add(BuilderAddFunction fn) => _base = fn(_base) ?? _base;
   void addDefaults(Map<String, dynamic> object){
-    add((base) =>Trash.validate(object) ? Trash(base: base as JsonBase) : null,);
+    add((base) =>Trash.validate(object) ? Trash(base: base as JsonBase)
+      : null,);
     add((base) => Base.validate(object) ? Base(
       base: base as JsonBase, password: object['Password'] as String,
       user: object['UserLogin'] as String,)
@@ -95,6 +96,7 @@ class Base extends Equatable with IBase, JsonBase {
   final String user;
   //Csak magyar diákokkal foglalkozunk
   @JsonKey(name: 'LCID')
+  // ignore: avoid_field_initializers_in_const_classes
   final int local = 1038;
 
   @JsonKey(ignore: true)

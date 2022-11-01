@@ -20,7 +20,8 @@ class Training extends Equatable {
   @JsonKey()
   final int Id;
 
-  void toJson([Map<String, dynamic> object = const <String, dynamic>{}]) => _$TrainingToJson(this);
+  void toJson([Map<String, dynamic> object = const <String, dynamic>{}])
+    => _$TrainingToJson(this);
   
   @override
   List<Object> get props => [Code, Description, Id];

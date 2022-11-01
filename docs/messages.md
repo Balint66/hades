@@ -1,6 +1,6 @@
-# Belépés
+# Üzenetek
 
-A belépéshez egy endpoint tartozik csupán, amit az alábbi módon lehet elérni.
+Az üzenetekhez egy endpoint tartozik csupán, amit az alábbi módon lehet elérni.
 
 ## Request
 
