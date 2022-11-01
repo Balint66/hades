@@ -1,25 +1,22 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:json_annotation/json_annotation.dart';
+
 import '../common/base_data.dart';
 import 'request_base.dart';
 
-class Login extends RequestBase
-{
-  final bool OnlyLogin;
+@JsonSerializable(createToJson: false, createFactory: false)
+class Login extends RequestBase {
 
-  Login(Base base, {this.OnlyLogin = false}): super(base);
+  const Login(super.base, {this.onlyLogin = false});
 
   factory Login.fromJson(final Map<String, dynamic> object)
   {
-    final base = RequestBase.fromJson(object);
-    final onlyLogin = object["OnlyLogin"] as bool? ?? false;
-    return Login(base, OnlyLogin: onlyLogin);
+    final base = Builder()..addDefaults(object);
+    final onlyLogin = object['OnlyLogin'] as bool? ?? false;
+    return Login(base.build(), onlyLogin: onlyLogin);
   }
 
-  @override
-  void toJson(final Map<String, dynamic> baseObject) {
-    super.toJson(baseObject);
-    baseObject["OnlyLogin"] = OnlyLogin;
-  }
+  final bool onlyLogin;
 
 }

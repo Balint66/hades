@@ -1,9 +1,16 @@
 [
     {
-        "id":1,
+        "id": 1,
         "code": "MINBNF00",
         "name": "Mérnökinformatikus (Bsc)",
         "level": "alapképzés (BA/BSc/BProf)",
         "kind": "Nappali"
+    },
+    {
+        "id": 2,
+        "code": "BAIBNL11",
+        "name": "Barista (BA)",
+        "level": "alapképzés (BA/BSc/BProf)",
+        "kind": "Levelező"
     }
 ]

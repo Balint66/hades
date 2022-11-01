@@ -1,22 +1,22 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:json_annotation/json_annotation.dart';
+
 import '../common/data/training.dart';
 import 'response_base.dart';
 
-class LoginR extends ResponseBase
-{
+part 'login.g.dart';
+
+@JsonSerializable(createFactory: false, ignoreUnannotated: true)
+class Login extends ResponseBase {
+  const Login(super.base, {required this.traininngs});
+
+  @JsonKey(name: 'TrainingList')
   final List<Training> traininngs;
 
-  LoginR(ResponseBase base, {required this.traininngs}) : super(base);
-
   @override
-  void toJson(Map<String, dynamic> baseObject) {
-    super.toJson(baseObject);
-    final trainingsJson = traininngs.map((e) {
-      final json = <String, dynamic>{};
-      e.toJson(json);
-      return json;
-    },).toList(growable: false);
-    baseObject["TrainingList"] = trainingsJson;
-  }
+  Map<String, dynamic> toJson([Map<String, dynamic> baseObject = const <String, dynamic>{}]) =>
+    super.toJson(baseObject)
+      ..addAll(_$LoginToJson(this));
+  
 }

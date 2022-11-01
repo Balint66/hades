@@ -11,6 +11,7 @@ Továbbá a mobil applikáció verzió számát jelző érték a kéréseknél s
 ## Végpontok
 
  - [Belépés](./login.md)
+ - [Üzenetek](./messages.md)
  - [Órarend/Naptár](./calendar.md) (WIP)
  - [Tárgyfelvétel](./courses.md) (WIP)
  - [Szemeszterben lévő időszakok](./sessions.md) (WIP)

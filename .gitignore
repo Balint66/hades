@@ -4,3 +4,6 @@
 
 # Conventional directory for build outputs
 build/
+
+# Generated
+*.g.dart

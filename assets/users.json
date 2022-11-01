@@ -1,10 +1,26 @@
 [
     {
         "id":1,
-        "username":"BOA",
+        "userName":"BOA",
         "firstName": "Balogh",
         "secondName": "Álmos",
         "password": "SZivaCS_is_Dö_BEST",
+        "trainings": [1, 2]
+    },
+    {
+        "id": 2,
+        "userName": "FBENI",
+        "firstName": "Fodor",
+        "secondName": "Benjamin",
+        "password": "ReniM4m4",
+        "trainings": []
+    },
+    {
+        "id": 3,
+        "userName": "TESZT",
+        "firstName": "Teszt",
+        "secondName": "Elek",
+        "password": "4Dmin",
         "trainings": [1]
     }
 ]

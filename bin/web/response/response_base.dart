@@ -1,52 +1,33 @@
-// ignore_for_file: non_constant_identifier_names
-
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import '../common/base_data.dart';
 
-class ResponseBase implements Base
-{
-  final int ExceptionsEnum;
-  final String? ErrorMessage;
-  final Map<String, dynamic>? ExceptionData;
-  final int MobileServiceVersion;
+part 'response_base.g.dart';
+
+@JsonSerializable(createFactory: false, ignoreUnannotated: true)
+abstract class ResponseBase extends Equatable with IBase, JsonBase {
+  const ResponseBase(this.base, {this.exceptionsEnum = 0,
+    this.errorMessage = '', this.exceptionData = const <String, dynamic>{},}) 
+    : mobileServiceVersion = 6; //Mert a hatos szám a kedvencem, de simán lehetne itt 5 is.
+
+  @JsonKey(name: 'ExceptionsEnum')
+  final int exceptionsEnum;
+  @JsonKey(name: 'ErrorMessage')
+  final String errorMessage;
+  @JsonKey(name: 'ExceptionData')
+  final Map<String, dynamic> exceptionData;
+  @JsonKey(name: 'MobileServiceVersion')
+  final int mobileServiceVersion;
 
   @override
-  int get CurrentPage => _encapsulated.CurrentPage;
-  @override
-  int get LCID => _encapsulated.LCID;
-  @override
-  String get Password => _encapsulated.Password;
-  @override
-  String? get StudentTrainingID => _encapsulated.StudentTrainingID;
-  @override
-  int get TotalRowCount => _encapsulated.TotalRowCount;
-  @override
-  String get UserLogin => _encapsulated.UserLogin;
-
-  final Base _encapsulated;
-
-  ResponseBase(this._encapsulated, {this.ExceptionsEnum = 0, this.ErrorMessage, this.ExceptionData}) 
-    : MobileServiceVersion = 6; //Mert a hatos szám a kedvencem, de simán lehetne itt 5 is.
-
-  factory ResponseBase.fromJson(final Map<String, dynamic> object)
-  {
-    final base = Base.fromJson(object);
-    final eEnum = object["ExceptionsEnum"] as int? ?? 0;
-    final eMessage = object["ErrorMessage"] as String?;
-    final eData = object["ExceptionData"] as Map<String, dynamic>?;
-
-    return ResponseBase(base, ExceptionsEnum: eEnum,
-      ErrorMessage: eMessage, ExceptionData: eData);
-
-  }
+  final JsonBase base;
 
   @override
-  void toJson(final Map<String, dynamic> baseObject) {
-    _encapsulated.toJson(baseObject);
-
-    baseObject["ExceptionsEnum"] = ExceptionsEnum;
-    baseObject["ErrorMessage"] = ErrorMessage;
-    baseObject["ExceptionData"] = ExceptionData;
-    baseObject["MobileServiceVersion"] = MobileServiceVersion;
-
-  }
+  Map<String, dynamic> toJson(
+    [final Map<String, dynamic> baseObject = const <String, dynamic>{},]) =>
+    base.toJson(baseObject)..addAll(_$ResponseBaseToJson(this));
+  
+  @override
+  List<Object> get props => [ base, exceptionsEnum, errorMessage,
+                              exceptionData, mobileServiceVersion];
 }

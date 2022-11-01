@@ -1,0 +1,10 @@
+[
+    {
+        "user": 1,
+        "messages": [ {
+            "id": 1,
+            "isNew": true,
+            "message": 1
+        } ]
+    }
+]

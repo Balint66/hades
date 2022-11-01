@@ -5,7 +5,7 @@ A belépéshez egy endpoint tartozik csupán, amit az alábbi módon lehet elér
 ## Request
 
 ```http
-GET <szerver>/GetTrainings
+POST <szerver>/GetTrainings
 ```
 
 body:
@@ -18,9 +18,9 @@ body:
 }
 ```
 
-- UserLogin: A szerveren található felhasználó felhasználóneve
-- Password: A felhasználóhoz tartozó jelszó
-- OnlyLogin: A felhasználó csak bejelentkezést akar végrehajtani? Azaz, ha ez true-ra van állítva, a felhasználó csak bejelentkezik, és semmi mást nem tehet ez után. Vagyis, teszteljük, hogy be tudunk-e lépni, esetleg tele van-e a szerver.
+- `UserLogin`: A szerveren található felhasználó felhasználóneve
+- `Password`: A felhasználóhoz tartozó jelszó
+- `OnlyLogin`: A felhasználó csak bejelentkezést akar végrehajtani? Azaz, ha ez true-ra van állítva, a felhasználó csak bejelentkezik, és semmi mást nem tehet ez után. Vagyis, teszteljük, hogy be tudunk-e lépni, esetleg tele van-e a szerver.
 
 ## Response
 
@@ -40,10 +40,10 @@ body:
 }
 ```
 
-- TrainingList: A felhasználó képzési listája. Lehetséges, hogy a felhasználó egyszerre több képzésben részt vesz, vagy 10 évvel ez előtt egy képzésben részt vett, majd most egy másikat kezdett el az adott intézményben. E miatt több képzés is megjelenhet.
-- Code: A képzés kódja. Ez a képzés nevéből, szintjéből, fajtájából, illetve 3 egyedi karakterből áll.
-- Description: A képzés teljes megnevezése.
-- Id: A képzés azonosítója. Ebben az implementációban a képzések statikusak, így ez az azonosító több felhasználóhoz is rendelhető, azonban egyes rendszerek ezt használhatják egy "összetett kulcsként" a felhasználó ÉS annak képzésének, így akár ez változhat(na) egyénenként is.
+- `TrainingList`: A felhasználó képzési listája. Lehetséges, hogy a felhasználó egyszerre több képzésben részt vesz, vagy 10 évvel ez előtt egy képzésben részt vett, majd most egy másikat kezdett el az adott intézményben. E miatt több képzés is megjelenhet.
+- `Code`: A képzés kódja. Ez a képzés nevéből, szintjéből, fajtájából, illetve 3 egyedi karakterből áll.
+- `Description`: A képzés teljes megnevezése.
+- `Id`: A képzés azonosítója. Ebben az implementációban a képzések statikusak, így ez az azonosító több felhasználóhoz is rendelhető, azonban egyes rendszerek ezt használhatják egy "összetett kulcsként" a felhasználó ÉS annak képzésének, így akár ez változhat(na) egyénenként is.
 
 Ezek után a lekérdezésekben az `Id`-t használjuk `StudentTrainingID`-ként, ezzel a felhasználó egyértelműen azonosíthatóvá válik.
 

@@ -1,17 +1,28 @@
 // ignore_for_file: non_constant_identifier_names
 
-class Training
-{
-  final String Code;
-  final String Description;
-  final int Id;
-  const Training({required this.Code, required this.Description, required this.Id, });
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-  void toJson(Map<String, dynamic> object)
-  {
-    object["Code"] = Code;
-    object["Description"] = Description;
-    object["Id"] = Id;
-  }
+part 'training.g.dart';
+
+@JsonSerializable(createFactory: false, ignoreUnannotated: true)
+class Training extends Equatable {
+  const Training({
+    required this.Code,
+    required this.Description,
+    required this.Id,
+  });
+
+  @JsonKey()
+  final String Code;
+  @JsonKey()
+  final String Description;
+  @JsonKey()
+  final int Id;
+
+  void toJson([Map<String, dynamic> object = const <String, dynamic>{}]) => _$TrainingToJson(this);
+  
+  @override
+  List<Object> get props => [Code, Description, Id];
 
 }

@@ -4,13 +4,21 @@ description: A web server built using the shelf package.
 # homepage: https://www.example.com
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
   args: ^2.0.0
   logger: ^1.1.0
   shelf: ^1.1.0
   shelf_router: ^1.1.2
+  equatable: ^2.0.3
+  copy_with_extension: ^4.0.0
+  json_annotation: ^4.7.0
+  json_serializable: ^6.1.4
 
 dev_dependencies:
   lint: ^1.0.0
+  copy_with_extension_gen: ^4.0.0
+  build_runner: ^2.1.7
+  very_good_analysis: ^3.0.1
+  recharge:

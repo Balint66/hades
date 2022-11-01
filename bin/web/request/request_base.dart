@@ -1,37 +1,21 @@
 // ignore_for_file: non_constant_identifier_names
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import '../common/base_data.dart';
 
-class RequestBase implements Base
-{
+abstract class RequestBase extends Equatable with IBase {
+
+  const RequestBase(this.base,) 
+    : MobileVersion = '1.5.2-rc1';
+
   final String MobileVersion;
-  final Base _encapsulated;
-
   @override
-  int get CurrentPage => _encapsulated.CurrentPage;
+  @JsonKey(ignore: true)
+  final IBase base;
+  
   @override
-  int get LCID => _encapsulated.LCID;
-  @override
-  String get Password => _encapsulated.Password;
-  @override
-  String? get StudentTrainingID => _encapsulated.StudentTrainingID;
-  @override
-  int get TotalRowCount => _encapsulated.TotalRowCount;
-  @override
-  String get UserLogin => _encapsulated.UserLogin;
-
-  const RequestBase(this._encapsulated,) : MobileVersion = "1.5.2-rc1";
-
-  factory RequestBase.fromJson(final Map<String,dynamic> baseObject)
-  {
-    final base = Base.fromJson(baseObject);
-    return RequestBase(base);
-  }
-
-  @override
-  void toJson(final Map<String, dynamic> baseObject) {
-   _encapsulated.toJson(baseObject);
-   baseObject["MobileVersion"] = MobileVersion; 
-  }
+  List<Object> get props => [base, MobileVersion];
 
   
 
